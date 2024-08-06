@@ -11,7 +11,7 @@ class GenerateWords(luigi.Task):
     fruit = luigi.Parameter()
 
     def output(self):
-        return luigi.LocalTarget(f'{self.fruit}_words.txt')
+        return luigi.LocalTarget(f'./outputs/{self.fruit}_words.txt')
 
     def run(self):
         with self.output().open('w') as f:
@@ -25,7 +25,7 @@ class CountLetters(luigi.Task):
         return GenerateWords(fruit=self.fruit)
 
     def output(self):
-        return luigi.LocalTarget(f'{self.fruit}_letter_counts.txt')
+        return luigi.LocalTarget(f'./outputs/{self.fruit}_letter_counts.txt')
 
     def run(self):
         with self.input().open('r') as infile:
@@ -42,7 +42,7 @@ class SortCounts(luigi.Task):
         return CountLetters(fruit=self.fruit)
 
     def output(self):
-        return luigi.LocalTarget(f'{self.fruit}_sorted_letter_counts.txt')
+        return luigi.LocalTarget(f'./outputs/{self.fruit}_sorted_letter_counts.txt')
 
     def run(self):
         with self.input().open('r') as infile:
@@ -63,4 +63,4 @@ class RunAllFruits(luigi.WrapperTask):
 
 
 if __name__ == '__main__':
-    luigi.run(['RunAllFruits', '--local-scheduler'])
+    luigi.run(['RunAllFruits'])

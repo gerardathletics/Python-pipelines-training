@@ -18,12 +18,12 @@ Before starting this course, I made sure to have:
 
 ## Basic commands
 ### Luigi
-- **Start the Luigi central scheduler (luigid):**
+- **Start the Luigi central scheduler:**
   ```sh
   luigid
 - **Run a Luigi Task:**
-  - ```py 
+    ```py 
     python your_luigi_script.py YourTaskName --local-scheduler
 - **List all available tasks:**
-  - ```py 
+    ```py 
     python your_luigi_script.py --help
