@@ -1,0 +1,6 @@
+apple | 5
+banana | 6
+Gerard | 6
+Ordina | 6
+grapefruit | 10
+SopraSteria | 11
